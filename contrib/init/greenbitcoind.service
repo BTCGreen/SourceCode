@@ -1,0 +1,26 @@
+[Unit]
+Description=GBTC's distributed currency daemon
+After=network.target
+
+[Service]
+User=greenbitcoin
+Group=greenbitcoin
+
+Type=forking
+PIDFile=/var/lib/greenbitcoind/greenbitcoind.pid
+
+ExecStart=/usr/bin/greenbitcoind -daemon -pid=/var/lib/greenbitcoind/greenbitcoind.pid \
+          -conf=/etc/greenbitcoin/greenbitcoin.conf -datadir=/var/lib/greenbitcoind
+
+ExecStop=-/usr/bin/greenbitcoin-cli -conf=/etc/greenbitcoin/greenbitcoin.conf \
+         -datadir=/var/lib/greenbitcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
