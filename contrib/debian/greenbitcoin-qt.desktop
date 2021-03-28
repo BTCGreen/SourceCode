@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=greenbitcoin
+Comment=greenbitcoin P2P Cryptocurrency
+Comment[fr]=greenbitcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=greenbitcoin, eşten eşe kriptografik sanal para birimi
+Exec=greenbitcoin-qt %u
+Terminal=false
+Type=Application
+Icon=greenbitcoin128
+MimeType=x-scheme-handler/greenbitcoin;
+Categories=Office;Finance;
